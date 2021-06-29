@@ -68,6 +68,13 @@ h1{
     margin-top: 15px;
 }
 
+#hesapla:hover{
+    color: #211058;
+    background-color:#6741f25e ;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
 #result{
     color: red;
     font-weight: bold;
