@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vücut Kitle İndeksi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="vk.i.png" type="image/x-icon">
+</head>
+<body>
+    <div class="box">
+        <h1>Vücut Kitle İndeksini hesapla</h1>
+        <div class="form">
+            <label for="kilo" id="kilo-baslık">Vücut Ağırlığınız (kg)</label><br><br>
+            <input type="text" id="kilo" placeholder="Kilonuzu giriniz(75)" required><br>
+            <label for="boy" id="boy-baslık">Boy Uzunluğunuz</label><br><br>
+            <input type="text" id="boy" placeholder="Boyunuzu giriniz(1.80)" required><br>
+            <input type="button" value="Hesapla" id="hesapla" onclick="count()">
+            <p id="result">SONUÇ</p>
+        </div>
+        </div>
+<script>
+    function count(){
+        var kilo, boy,result, message;
+        kilo = Number(document.getElementById("kilo").value);
+        boy = Number(document.getElementById("boy").value);
+        result = kilo / (boy*boy);
+            if(result<18.5){
+                message = "---  Zayıf  ---";
+            }else if(result >= 18.8 && result<=24.9 ){
+                message = "---  Normal Kilolu  ---";
+            }else if(result >= 25  && result<=29.9 ){
+                message = "---  Fazla Kilolu  ---";
+            }else if(result >= 30 && result<=39.9 ){
+                message = "!!!  Obez  !!!";
+            }else if(result >= 40 ){
+                message = "!!!  İleri Derecede Obez  !!!";    
+            }else{
+                message = "Geçerli değer giriniz."
+            }    
+        document.getElementById("result").innerHTML = message;  
+    }
+</script>
+</body>
+</html>
+
+
