@@ -10,14 +10,15 @@
 </head>
 <body>
     <div class="box">
-        <h1>Vücut Kitle İndeksini Hesapla</h1>
+        <h1>Calculate Your BMI</h1>
         <div class="form">
-            <label for="kilo" id="kilo-baslık">Vücut Ağırlığınız (kg)</label><br><br>
-            <input type="text" id="kilo" placeholder="Kilonuzu giriniz(75)" required><br>
-            <label for="boy" id="boy-baslık">Boy Uzunluğunuz (m)</label><br><br>
-            <input type="text" id="boy" placeholder="Boyunuzu giriniz(1.80)" required><br>
-            <input type="button" value="Hesapla" id="hesapla" onclick="count()">
-            <p id="result">SONUÇ</p>
+            <label for="kilo" id="kilo-baslık">Your Weight (kg)</label><br><br>
+            <input type="text" id="kilo" placeholder="Enter your weight(75)" required><br>
+            <label for="boy" id="boy-baslık">Your Height (m)</label><br><br>
+            <input type="text" id="boy" placeholder="Enter your height (1.80)" required><br>
+            <input type="button" value="Calculate" id="hesapla" onclick="count()">
+            <button class="buton" type="button">Clear</button>
+            <p id="result">RESULT</p>
         </div>
     </div>
 <script>
@@ -27,20 +28,26 @@
         boy = Number(document.getElementById("boy").value);
         result = kilo / (boy*boy);
             if(result<18.5){
-                message = "---  Zayıf  ---";
+                message = "---  Underweight  ---";
             }else if(result >= 18.8 && result<=24.9 ){
-                message = "---  Normal Kilolu  ---";
+                message = "---  Normal Weight  ---";
             }else if(result >= 25  && result<=29.9 ){
-                message = "---  Fazla Kilolu  ---";
+                message = "---  Overweight  ---";
             }else if(result >= 30 && result<=39.9 ){
-                message = "!!!  Obez  !!!";
+                message = "!!!  💥 Obesity  !!!";
             }else if(result >= 40 ){
-                message = "!!!  İleri Derecede Obez  !!!";    
+                message = "!!! 💥 Severely Obese 💥 !!!";    
             }else{
-                message = "Geçerli değer giriniz."
+                message = "Please enter valid value."
             }    
-        document.getElementById("result").innerHTML = message;  
+        document.getElementById("result").innerHTML = message;
+
     }
+    document.querySelector(".buton").addEventListener("click", function(){
+        document.getElementById("kilo").value = " ";
+        document.getElementById("boy").value = " ";
+        document.querySelector("#result").innerHTML = "RESULT"
+    });      
 </script>
 </body>
 </html>
